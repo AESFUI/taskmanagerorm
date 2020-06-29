@@ -4,10 +4,10 @@ import javax.annotation.Resource;
 import ml.sadriev.orm.service.ProjectService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
-import ml.sadriev.orm.entity.Project;
+import ml.sadriev.orm.model.Project;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class ProjectListCommand extends AbstractCommand {

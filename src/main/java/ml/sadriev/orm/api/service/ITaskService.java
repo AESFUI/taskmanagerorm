@@ -2,10 +2,10 @@ package ml.sadriev.orm.api.service;
 
 import java.util.Collection;
 import java.util.List;
-import ml.sadriev.orm.entity.Task;
+import ml.sadriev.orm.model.Task;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public interface ITaskService {
 

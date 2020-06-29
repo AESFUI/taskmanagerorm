@@ -7,7 +7,7 @@ import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.service.ProjectService;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class ProjectCreateCommand extends AbstractCommand {

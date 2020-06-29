@@ -1,4 +1,4 @@
-package ml.sadriev.orm.entity;
+package ml.sadriev.orm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -8,18 +8,16 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 
 @Component
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class Task implements Serializable{
+public final class Project implements Serializable {
 
-//    private static final long serialVersionUID = 1L;
+//    public static final long serialVersionUID = 1;
 
     private String id = UUID.randomUUID().toString();
-
-    private String projectId;
 
     private String name = "";
 
@@ -27,19 +25,21 @@ public final class Task implements Serializable{
 
     private Date dateEnd;
 
+    private Date created = new Date();
+
+//    private transient Integer test = 123;
+
     public void test() {
         System.out.println("HELLO");
     }
 
-//    public Long test = 11L;
+    public Date getCreated() {
+        return created;
+    }
 
-//    public String orderIndex = Long.toString(System.currentTimeMillis());
-//    public Long orderIndex = System.currentTimeMillis();
-
-//    private String test() {
-//        return "";
-//    }
-
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
     public String getId() {
         return id;
@@ -71,14 +71,6 @@ public final class Task implements Serializable{
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
     }
 
 }

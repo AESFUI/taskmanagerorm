@@ -5,15 +5,20 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import ml.sadriev.orm.api.repository.IProjectRepository;
-import ml.sadriev.orm.entity.Project;
+import ml.sadriev.orm.model.Project;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Repository
-public final class ProjectRepository implements IProjectRepository {
+public class ProjectRepository implements IProjectRepository {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private final Map<String, Project> map = new LinkedHashMap<>();
 

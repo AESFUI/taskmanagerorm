@@ -8,7 +8,7 @@ import java.io.File;
 import java.nio.file.Files;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class DataBinaryClearCommand extends AbstractCommand {

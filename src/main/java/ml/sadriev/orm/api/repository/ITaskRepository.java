@@ -1,12 +1,12 @@
 package ml.sadriev.orm.api.repository;
 
-import ml.sadriev.orm.entity.Task;
+import ml.sadriev.orm.model.Task;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public interface ITaskRepository {
 

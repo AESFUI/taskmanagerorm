@@ -3,13 +3,13 @@ package ml.sadriev.orm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import ml.sadriev.orm.entity.Project;
+import ml.sadriev.orm.model.Project;
 import org.junit.Test;
 
 import java.io.IOException;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public class XmlTest {
 

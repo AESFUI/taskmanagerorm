@@ -7,14 +7,14 @@ import java.nio.file.Files;
 import javax.annotation.Resource;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
-import ml.sadriev.orm.entity.Project;
-import ml.sadriev.orm.entity.Task;
+import ml.sadriev.orm.model.Project;
+import ml.sadriev.orm.model.Task;
 import ml.sadriev.orm.service.ProjectService;
 import ml.sadriev.orm.service.TaskService;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class DataBinarySaveCommand extends AbstractCommand {

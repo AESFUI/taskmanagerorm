@@ -5,15 +5,20 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import ml.sadriev.orm.api.repository.ITaskRepository;
+import ml.sadriev.orm.model.Task;
 import org.springframework.stereotype.Repository;
-import ml.sadriev.orm.entity.Task;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Repository
-public final class TaskRepository implements ITaskRepository {
+public class TaskRepository implements ITaskRepository {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private final Map<String, Task> map = new LinkedHashMap<>();
 

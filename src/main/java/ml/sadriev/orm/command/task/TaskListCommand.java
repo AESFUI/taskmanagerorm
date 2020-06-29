@@ -3,11 +3,11 @@ package ml.sadriev.orm.command.task;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
-import ml.sadriev.orm.entity.Task;
+import ml.sadriev.orm.model.Task;
 import ml.sadriev.orm.service.TaskService;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class TaskListCommand extends AbstractCommand {

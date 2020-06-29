@@ -3,13 +3,15 @@ package ml.sadriev.orm.service;
 import javax.annotation.Resource;
 import ml.sadriev.orm.api.service.IDomainService;
 import org.springframework.stereotype.Service;
-import ml.sadriev.orm.entity.Domain;
+import ml.sadriev.orm.model.Domain;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Service
-public final class DomainService implements IDomainService {
+@Transactional
+public class DomainService implements IDomainService {
 
     @Resource
     private ProjectService projectService;

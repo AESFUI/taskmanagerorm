@@ -11,7 +11,7 @@ import ml.sadriev.orm.error.CommandAbsentException;
 import ml.sadriev.orm.error.CommandCorruptException;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class Bootstrap {

@@ -6,7 +6,7 @@ import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.service.TaskService;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class TaskClearCommand extends AbstractCommand {

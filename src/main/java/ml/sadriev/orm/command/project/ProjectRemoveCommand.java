@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class ProjectRemoveCommand extends AbstractCommand {

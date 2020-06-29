@@ -1,7 +1,7 @@
 package ml.sadriev.orm.error;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public final class CommandCorruptException extends RuntimeException {
 

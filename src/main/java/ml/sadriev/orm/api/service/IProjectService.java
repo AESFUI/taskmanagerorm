@@ -1,12 +1,12 @@
 package ml.sadriev.orm.api.service;
 
-import ml.sadriev.orm.entity.Project;
+import ml.sadriev.orm.model.Project;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public interface IProjectService {
 

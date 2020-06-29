@@ -1,7 +1,7 @@
 package ml.sadriev.orm.constant;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public class DataConstant {
 

@@ -6,7 +6,7 @@ import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.controller.Bootstrap;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class HelpCommand extends AbstractCommand {

@@ -5,16 +5,18 @@ import java.util.List;
 import ml.sadriev.orm.api.repository.IProjectRepository;
 import ml.sadriev.orm.api.repository.ITaskRepository;
 import ml.sadriev.orm.api.service.ITaskService;
+import ml.sadriev.orm.model.Project;
+import ml.sadriev.orm.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ml.sadriev.orm.entity.Project;
-import ml.sadriev.orm.entity.Task;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Service
-public final class TaskService implements ITaskService {
+@Transactional
+public class TaskService implements ITaskService {
 
     private final ITaskRepository taskRepository;
 

@@ -7,7 +7,7 @@ import ml.sadriev.orm.controller.Bootstrap;
 import ml.sadriev.orm.service.TaskService;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class TaskCreateCommand extends AbstractCommand {

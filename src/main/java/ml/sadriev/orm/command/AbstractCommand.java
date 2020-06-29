@@ -1,7 +1,7 @@
 package ml.sadriev.orm.command;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public abstract class AbstractCommand {
 

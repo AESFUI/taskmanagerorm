@@ -1,9 +1,9 @@
 package ml.sadriev.orm.api.service;
 
-import ml.sadriev.orm.entity.Domain;
+import ml.sadriev.orm.model.Domain;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 public interface IDomainService {
 

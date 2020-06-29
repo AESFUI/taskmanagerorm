@@ -6,12 +6,12 @@ import java.nio.file.Files;
 import javax.annotation.Resource;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
-import ml.sadriev.orm.entity.Domain;
+import ml.sadriev.orm.model.Domain;
 import ml.sadriev.orm.service.DomainService;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Component
 public final class DataJsonLoadCommand extends AbstractCommand {

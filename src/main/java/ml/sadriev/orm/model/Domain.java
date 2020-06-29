@@ -1,4 +1,4 @@
-package ml.sadriev.orm.entity;
+package ml.sadriev.orm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 
 @Component

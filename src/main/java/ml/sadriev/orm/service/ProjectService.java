@@ -6,13 +6,15 @@ import ml.sadriev.orm.api.repository.IProjectRepository;
 import ml.sadriev.orm.api.service.IProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ml.sadriev.orm.entity.Project;
+import ml.sadriev.orm.model.Project;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Denis Volnenko
+ * @author Andrey Sadriev
  */
 @Service
-public final class ProjectService implements IProjectService {
+@Transactional
+public class ProjectService implements IProjectService {
 
     private final IProjectRepository projectRepository;
 
