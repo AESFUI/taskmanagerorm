@@ -15,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
-//@Configuration
+@Configuration
 @ComponentScan
 @PropertySource("classpath:db-conf.properties")
 public class ContextConfiguration {

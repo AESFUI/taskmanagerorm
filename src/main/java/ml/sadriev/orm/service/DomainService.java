@@ -2,6 +2,8 @@ package ml.sadriev.orm.service;
 
 import javax.annotation.Resource;
 import ml.sadriev.orm.api.service.IDomainService;
+import ml.sadriev.orm.api.service.IProjectService;
+import ml.sadriev.orm.api.service.ITaskService;
 import org.springframework.stereotype.Service;
 import ml.sadriev.orm.model.Domain;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class DomainService implements IDomainService {
 
     @Resource
-    private ProjectService projectService;
+    private IProjectService projectService;
     @Resource
-    private TaskService taskService;
+    private ITaskService taskService;
 
     @Override
     public void load(final Domain domain) {

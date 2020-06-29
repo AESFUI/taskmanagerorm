@@ -5,12 +5,12 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.IProjectService;
+import ml.sadriev.orm.api.service.ITaskService;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
 import ml.sadriev.orm.model.Project;
 import ml.sadriev.orm.model.Task;
-import ml.sadriev.orm.service.ProjectService;
-import ml.sadriev.orm.service.TaskService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,9 +20,9 @@ import org.springframework.stereotype.Component;
 public final class DataBinarySaveCommand extends AbstractCommand {
 
     @Resource
-    private ProjectService projectService;
+    private IProjectService projectService;
     @Resource
-    private TaskService taskService;
+    private ITaskService taskService;
 
     @Override
     public String command() {

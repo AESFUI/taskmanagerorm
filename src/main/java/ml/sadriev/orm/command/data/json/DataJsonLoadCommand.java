@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.nio.file.Files;
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.IDomainService;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
 import ml.sadriev.orm.model.Domain;
-import ml.sadriev.orm.service.DomainService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public final class DataJsonLoadCommand extends AbstractCommand {
 
     @Resource
-    private DomainService domainService;
+    private IDomainService domainService;
 
     @Override
     public String command() {

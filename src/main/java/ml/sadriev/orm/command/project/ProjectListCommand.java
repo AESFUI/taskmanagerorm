@@ -1,7 +1,7 @@
 package ml.sadriev.orm.command.project;
 
 import javax.annotation.Resource;
-import ml.sadriev.orm.service.ProjectService;
+import ml.sadriev.orm.api.service.IProjectService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.model.Project;
@@ -13,7 +13,7 @@ import ml.sadriev.orm.model.Project;
 public final class ProjectListCommand extends AbstractCommand {
 
     @Resource
-    private ProjectService projectService;
+    private IProjectService projectService;
 
     @Override
     public String command() {

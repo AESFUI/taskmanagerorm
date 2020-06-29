@@ -1,9 +1,9 @@
 package ml.sadriev.orm.command.task;
 
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.ITaskService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
-import ml.sadriev.orm.service.TaskService;
 
 /**
  * @author Andrey Sadriev
@@ -12,7 +12,7 @@ import ml.sadriev.orm.service.TaskService;
 public final class TaskClearCommand extends AbstractCommand {
 
     @Resource
-    private TaskService taskService;
+    private ITaskService taskService;
 
     @Override
     public String description() {

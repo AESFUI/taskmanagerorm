@@ -1,10 +1,10 @@
 package ml.sadriev.orm.command.task;
 
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.ITaskService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.controller.Bootstrap;
-import ml.sadriev.orm.service.TaskService;
 
 /**
  * @author Andrey Sadriev
@@ -15,7 +15,7 @@ public final class TaskCreateCommand extends AbstractCommand {
     @Resource
     private Bootstrap bootstrap;
     @Resource
-    private TaskService taskService;
+    private ITaskService taskService;
 
     @Override
     public String command() {

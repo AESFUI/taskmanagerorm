@@ -3,10 +3,10 @@ package ml.sadriev.orm.command.data.bin;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.IProjectService;
+import ml.sadriev.orm.api.service.ITaskService;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
-import ml.sadriev.orm.service.ProjectService;
-import ml.sadriev.orm.service.TaskService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.model.Project;
 import ml.sadriev.orm.model.Task;
@@ -18,9 +18,9 @@ import ml.sadriev.orm.model.Task;
 public final class DataBinaryLoadCommand extends AbstractCommand {
 
     @Resource
-    private ProjectService projectService;
+    private IProjectService projectService;
     @Resource
-    private TaskService taskService;
+    private ITaskService taskService;
 
     @Override
     public String command() {

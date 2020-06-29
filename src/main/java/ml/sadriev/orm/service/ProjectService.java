@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.List;
 import ml.sadriev.orm.api.repository.IProjectRepository;
 import ml.sadriev.orm.api.service.IProjectService;
+import ml.sadriev.orm.model.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ml.sadriev.orm.model.Project;
 import org.springframework.transaction.annotation.Transactional;
 
 /**

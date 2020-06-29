@@ -1,14 +1,14 @@
 package ml.sadriev.orm.api.repository;
 
-import ml.sadriev.orm.model.Task;
-
 import java.util.Collection;
 import java.util.List;
+import ml.sadriev.orm.model.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author Andrey Sadriev
  */
-public interface ITaskRepository {
+public interface ITaskRepository extends JpaRepository<Task, String> {
 
     Task createTask(String name);
 
