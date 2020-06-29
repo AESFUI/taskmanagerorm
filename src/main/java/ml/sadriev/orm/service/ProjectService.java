@@ -23,56 +23,58 @@ public class ProjectService implements IProjectService {
     }
 
     @Override
+    @Transactional
     public Project createProject(final String name) {
         if (name == null || name.isEmpty()) return null;
         return projectRepository.createProject(name);
     }
 
     @Override
+    @Transactional
     public Project merge(final Project project) {
         return projectRepository.merge(project);
     }
 
     @Override
-    @Transactional
     public Project getProjectById(final String id) {
         return projectRepository.getProjectById(id);
     }
 
     @Override
+    @Transactional
     public void removeProjectById(final String id) {
         projectRepository.removeProjectById(id);
     }
 
     @Override
-    @Transactional
     public List<Project> getListProject() {
         return projectRepository.getListProject();
     }
 
     @Override
+    @Transactional
     public void clear() {
         projectRepository.clear();
     }
 
     @Override
+    @Transactional
     public void merge(Project... projects) {
         projectRepository.merge(projects);
     }
 
     @Override
-    @Transactional
     public void load(Collection<Project> projects) {
         projectRepository.load(projects);
     }
 
     @Override
-    @Transactional
     public void load(Project... projects) {
         projectRepository.load(projects);
     }
 
     @Override
+    @Transactional
     public Project removeByOrderIndex(Integer orderIndex) {
         if (orderIndex == null) return null;
         return projectRepository.removeByOrderIndex(orderIndex);

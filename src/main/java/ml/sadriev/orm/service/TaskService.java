@@ -31,39 +31,42 @@ public class TaskService implements ITaskService {
     }
 
     @Override
+    @Transactional
     public Task createTask(final String name) {
         if (name == null || name.isEmpty()) return null;
         return taskRepository.createTask(name);
     }
 
     @Override
-    @Transactional
     public Task getTaskById(final String id) {
         return taskRepository.getTaskById(id);
     }
 
     @Override
+    @Transactional
     public Task merge(final Task task) {
         return taskRepository.merge(task);
     }
 
     @Override
+    @Transactional
     public void removeTaskById(final String id) {
         taskRepository.removeTaskById(id);
     }
 
     @Override
-    @Transactional
     public List<Task> getListTask() {
         return taskRepository.getListTask();
     }
 
     @Override
+    @Transactional
     public void clear() {
         taskRepository.clear();
     }
 
     @Override
+    @Transactional
     public Task createTaskByProject(final String projectId, final String taskName) {
         final Project project = projectRepository.getProjectById(projectId);
         if (project == null) return null;
@@ -78,6 +81,7 @@ public class TaskService implements ITaskService {
     }
 
     @Override
+    @Transactional
     public void merge(Task... tasks) {
         taskRepository.merge(tasks);
     }
@@ -93,6 +97,7 @@ public class TaskService implements ITaskService {
     }
 
     @Override
+    @Transactional
     public void removeTaskByOrderIndex(Integer orderIndex) {
         taskRepository.removeTaskByOrderIndex(orderIndex);
     }

@@ -20,7 +20,6 @@ public class DomainService implements IDomainService {
     private ITaskService taskService;
 
     @Override
-    @Transactional
     public void load(final Domain domain) {
         if (domain == null) return;
         projectService.load(domain.getProjects());
@@ -28,6 +27,7 @@ public class DomainService implements IDomainService {
     }
 
     @Override
+    @Transactional
     public void export(final Domain domain) {
         if (domain == null) return;
         domain.setProjects(projectService.getListProject());
