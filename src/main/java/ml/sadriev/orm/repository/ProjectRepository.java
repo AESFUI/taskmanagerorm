@@ -31,7 +31,7 @@ public class ProjectRepository implements IProjectRepository {
     public Project createProject(final String name) {
         final Project project = new Project();
         project.setName(name);
-        merge(project);
+        entityManager.merge(project);
         return project;
     }
 

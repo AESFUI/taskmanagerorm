@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Data;
@@ -20,7 +19,6 @@ import lombok.Data;
 public final class Domain {
 
     @Id
-    @GeneratedValue
     private String id = UUID.randomUUID().toString();
 
     @OneToMany

@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
 
@@ -19,7 +18,6 @@ import lombok.Data;
 public final class Task implements Serializable{
 
     @Id
-    @GeneratedValue
     private String id = UUID.randomUUID().toString();
 
     private String projectId;
