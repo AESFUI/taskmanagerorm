@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Andrey Sadriev
  */
 @Service
-@Transactional
 public class DomainService implements IDomainService {
 
     @Resource
@@ -21,6 +20,7 @@ public class DomainService implements IDomainService {
     private ITaskService taskService;
 
     @Override
+    @Transactional
     public void load(final Domain domain) {
         if (domain == null) return;
         projectService.load(domain.getProjects());

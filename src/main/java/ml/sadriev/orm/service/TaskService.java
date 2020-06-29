@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Andrey Sadriev
  */
 @Service
-@Transactional
 public class TaskService implements ITaskService {
 
     private final ITaskRepository taskRepository;
@@ -38,6 +37,7 @@ public class TaskService implements ITaskService {
     }
 
     @Override
+    @Transactional
     public Task getTaskById(final String id) {
         return taskRepository.getTaskById(id);
     }
@@ -53,6 +53,7 @@ public class TaskService implements ITaskService {
     }
 
     @Override
+    @Transactional
     public List<Task> getListTask() {
         return taskRepository.getListTask();
     }

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Andrey Sadriev
  */
 @Service
-@Transactional
 public class ProjectService implements IProjectService {
 
     private final IProjectRepository projectRepository;
@@ -35,6 +34,7 @@ public class ProjectService implements IProjectService {
     }
 
     @Override
+    @Transactional
     public Project getProjectById(final String id) {
         return projectRepository.getProjectById(id);
     }
@@ -45,6 +45,7 @@ public class ProjectService implements IProjectService {
     }
 
     @Override
+    @Transactional
     public List<Project> getListProject() {
         return projectRepository.getListProject();
     }
@@ -60,11 +61,13 @@ public class ProjectService implements IProjectService {
     }
 
     @Override
+    @Transactional
     public void load(Collection<Project> projects) {
         projectRepository.load(projects);
     }
 
     @Override
+    @Transactional
     public void load(Project... projects) {
         projectRepository.load(projects);
     }
@@ -74,5 +77,4 @@ public class ProjectService implements IProjectService {
         if (orderIndex == null) return null;
         return projectRepository.removeByOrderIndex(orderIndex);
     }
-
 }
