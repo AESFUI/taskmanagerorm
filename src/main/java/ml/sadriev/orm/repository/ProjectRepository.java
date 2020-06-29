@@ -38,6 +38,7 @@ public class ProjectRepository implements IProjectRepository {
     @Override
     public Project merge(final Project project) {
         if (project == null) return null;
+//        entityManager.merge(project.getId());
         map.put(project.getId(), project);
         return project;
     }

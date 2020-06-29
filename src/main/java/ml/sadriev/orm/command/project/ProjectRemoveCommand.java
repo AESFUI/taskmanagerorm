@@ -21,7 +21,5 @@ public final class ProjectRemoveCommand extends AbstractCommand {
 
     @Override
     public void execute() {
-
     }
-
 }

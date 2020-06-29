@@ -22,10 +22,7 @@ public class TaskService implements ITaskService {
     private final IProjectRepository projectRepository;
 
     @Autowired
-    public TaskService(
-            final ITaskRepository taskRepository,
-            final IProjectRepository projectRepository
-    ) {
+    public TaskService(final ITaskRepository taskRepository, final IProjectRepository projectRepository) {
         this.taskRepository = taskRepository;
         this.projectRepository = projectRepository;
     }

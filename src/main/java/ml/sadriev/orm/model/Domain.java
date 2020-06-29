@@ -1,37 +1,31 @@
 package ml.sadriev.orm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import lombok.Data;
 
 /**
  * @author Andrey Sadriev
  */
 
-@Component
+@Data
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class Domain {
 
+    @Id
+    @GeneratedValue
+    private String id = UUID.randomUUID().toString();
+
+    @OneToMany
     private List<Project> projects = new ArrayList<>();
 
+    @OneToMany
     private List<Task> tasks = new ArrayList<>();
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
-    }
-
 }
