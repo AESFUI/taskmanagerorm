@@ -1,9 +1,10 @@
 package ml.sadriev.orm.command.task;
 
+import java.util.Scanner;
 import javax.annotation.Resource;
+import ml.sadriev.orm.api.service.ITaskService;
 import org.springframework.stereotype.Component;
 import ml.sadriev.orm.command.AbstractCommand;
-import ml.sadriev.orm.controller.Bootstrap;
 
 /**
  * @author Andrey Sadriev
@@ -12,7 +13,9 @@ import ml.sadriev.orm.controller.Bootstrap;
 public final class TaskRemoveCommand extends AbstractCommand {
 
     @Resource
-    private Bootstrap bootstrap;
+    private ITaskService taskService;
+
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public String command() {
@@ -27,14 +30,15 @@ public final class TaskRemoveCommand extends AbstractCommand {
     @Override
     public void execute() {
         System.out.println("[REMOVING TASK]");
-        System.out.println("Enter task order index:");
-        final Integer orderIndex = bootstrap.nextInteger();
-        if (orderIndex == null) {
-            System.out.println("Error! Incorrect order index...");
-            System.out.println();
-            return;
-        }
-        System.out.println("[OK]");
-    }
+        System.out.println("Enter task name:");
 
+        String name = "";
+        name = scanner.nextLine();
+
+        if (taskService.removeTaskByName(name) == 1) {
+            System.out.println("[OK]");
+        } else {
+            System.out.println("[Error. Task not deleted.]");
+        }
+    }
 }

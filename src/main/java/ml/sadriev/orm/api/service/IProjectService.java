@@ -16,7 +16,7 @@ public interface IProjectService {
 
     Project getProjectById(String id);
 
-    void removeProjectById(String id);
+    void removeProjectByName(String name);
 
     List<Project> getListProject();
 
@@ -29,5 +29,4 @@ public interface IProjectService {
     void load(Project... projects);
 
     Project removeByOrderIndex(Integer orderIndex);
-
 }

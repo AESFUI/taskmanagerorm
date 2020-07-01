@@ -28,5 +28,4 @@ public final class DataXmlClearCommand extends AbstractCommand {
         final File file = new File(DataConstant.FILE_XML);
         Files.deleteIfExists(file.toPath());
     }
-
 }

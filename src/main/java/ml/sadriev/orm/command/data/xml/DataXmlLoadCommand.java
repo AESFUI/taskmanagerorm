@@ -36,9 +36,9 @@ public final class DataXmlLoadCommand extends AbstractCommand {
         final File file = new File(DataConstant.FILE_XML);
         if (!exists(file)) return;
         final byte[] bytes = Files.readAllBytes(file.toPath());
-        final String json = new String(bytes, "UTF-8");
+        final String xml = new String(bytes, "UTF-8");
         final ObjectMapper objectMapper = new XmlMapper();
-        final Domain domain = objectMapper.readValue(json, Domain.class);
+        final Domain domain = objectMapper.readValue(xml, Domain.class);
         domainService.load(domain);
         System.out.println("[OK]");
     }

@@ -1,11 +1,10 @@
 package ml.sadriev.orm.command.data.bin;
 
+import java.io.File;
+import java.nio.file.Files;
 import ml.sadriev.orm.command.AbstractCommand;
 import ml.sadriev.orm.constant.DataConstant;
 import org.springframework.stereotype.Component;
-
-import java.io.File;
-import java.nio.file.Files;
 
 /**
  * @author Andrey Sadriev
@@ -28,5 +27,4 @@ public final class DataBinaryClearCommand extends AbstractCommand {
         final File file = new File(DataConstant.FILE_BINARY);
         Files.deleteIfExists(file.toPath());
     }
-
 }

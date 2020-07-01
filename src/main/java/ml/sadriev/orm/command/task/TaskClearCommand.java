@@ -29,5 +29,4 @@ public final class TaskClearCommand extends AbstractCommand {
         taskService.clear();
         System.out.println("[ALL TASK REMOVED]");
     }
-
 }

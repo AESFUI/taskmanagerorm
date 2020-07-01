@@ -30,5 +30,4 @@ public final class HelpCommand extends AbstractCommand {
             System.out.println(command.command()+ ": " + command.description());
         }
     }
-
 }

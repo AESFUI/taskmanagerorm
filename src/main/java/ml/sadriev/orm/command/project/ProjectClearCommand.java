@@ -29,5 +29,4 @@ public final class ProjectClearCommand extends AbstractCommand {
         projectService.clear();
         System.out.println("[ALL PROJECTS REMOVED]");
     }
-
 }

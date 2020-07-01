@@ -10,5 +10,4 @@ public interface IDomainService {
     void load(Domain domain);
 
     void export(Domain domain);
-
 }

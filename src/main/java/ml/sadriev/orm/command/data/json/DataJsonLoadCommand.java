@@ -48,5 +48,4 @@ public final class DataJsonLoadCommand extends AbstractCommand {
         if (!check) System.out.println("FILE NOT FOUND");
         return check;
     }
-
 }

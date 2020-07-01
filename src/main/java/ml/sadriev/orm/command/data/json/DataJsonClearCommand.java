@@ -28,5 +28,4 @@ public final class DataJsonClearCommand extends AbstractCommand {
         final File file = new File(DataConstant.FILE_JSON);
         Files.deleteIfExists(file.toPath());
     }
-
 }

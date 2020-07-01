@@ -37,8 +37,8 @@ public final class DataBinarySaveCommand extends AbstractCommand {
     @Override
     public void execute() throws Exception {
         System.out.println("[DATA BINARY SAVE]");
-        final Project[] projects = projectService.getListProject().toArray(new Project[] {});
-//        final Task[] tasks = taskService.getListTask().toArray(new Task[] {});
+        final Project[] projects = projectService.getListProject().toArray(new Project[]{});
+        final Task[] tasks = taskService.getListTask().toArray(new Task[]{});
 
         final File file = new File(DataConstant.FILE_BINARY);
         Files.deleteIfExists(file.toPath());
@@ -47,12 +47,11 @@ public final class DataBinarySaveCommand extends AbstractCommand {
         final FileOutputStream fileOutputStream = new FileOutputStream(file);
         final ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(projects);
-//        objectOutputStream.writeObject(tasks);
+        objectOutputStream.writeObject(tasks);
         objectOutputStream.close();
         fileOutputStream.close();
 
         System.out.println("[OK]");
         System.out.println();
     }
-
 }

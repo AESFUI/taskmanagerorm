@@ -3,6 +3,7 @@ package ml.sadriev.orm.command.data.json;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import javax.annotation.Resource;
 import ml.sadriev.orm.api.service.IDomainService;
@@ -38,10 +39,9 @@ public final class DataJsonSaveCommand extends AbstractCommand {
         final ObjectMapper objectMapper = new ObjectMapper();
         final ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         final String json = objectWriter.writeValueAsString(domain);
-        final byte[] data = json.getBytes("UTF-8");
+        final byte[] data = json.getBytes(StandardCharsets.UTF_8);
         final File file = new File(DataConstant.FILE_JSON);
         Files.write(file.toPath(), data);
         System.out.println("[OK]");
     }
-
 }

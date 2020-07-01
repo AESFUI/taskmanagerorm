@@ -2,9 +2,9 @@ package ml.sadriev.orm.service;
 
 import java.util.Collection;
 import java.util.List;
+import ml.sadriev.orm.api.repository.ProjectRepository;
 import ml.sadriev.orm.api.service.IProjectService;
 import ml.sadriev.orm.model.Project;
-import ml.sadriev.orm.repository.ProjectRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ProjectService implements IProjectService {
 
-    private final ProjectRepositoryImpl projectRepository;
+    private final ProjectRepository projectRepository;
 
     @Autowired
-    public ProjectService(final ProjectRepositoryImpl projectRepositoryImpl) {
-        this.projectRepository = projectRepositoryImpl;
+    public ProjectService(final ProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
     }
 
     @Override
@@ -37,24 +37,24 @@ public class ProjectService implements IProjectService {
 
     @Override
     public Project getProjectById(final String id) {
-        return projectRepository.getProjectById(id);
+        return projectRepository.findProjectById(id);
     }
 
     @Override
     @Transactional
-    public void removeProjectById(final String id) {
-        projectRepository.removeProjectById(id);
+    public void removeProjectByName(final String name) {
+        projectRepository.deleteProjectByName(name);
     }
 
     @Override
     public List<Project> getListProject() {
-        return projectRepository.getListProject();
+        return projectRepository.findAll();
     }
 
     @Override
     @Transactional
     public void clear() {
-        projectRepository.clear();
+        projectRepository.deleteAll();
     }
 
     @Override
@@ -64,12 +64,15 @@ public class ProjectService implements IProjectService {
     }
 
     @Override
+    @Transactional
     public void load(Collection<Project> projects) {
+        clear();
         projectRepository.load(projects);
     }
 
     @Override
     public void load(Project... projects) {
+        clear();
         projectRepository.load(projects);
     }
 

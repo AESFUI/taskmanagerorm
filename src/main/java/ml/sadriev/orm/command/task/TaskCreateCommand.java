@@ -36,5 +36,4 @@ public final class TaskCreateCommand extends AbstractCommand {
         System.out.println("[OK]");
         System.out.println();
     }
-
 }
