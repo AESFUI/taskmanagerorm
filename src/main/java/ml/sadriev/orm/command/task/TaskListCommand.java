@@ -29,10 +29,10 @@ public final class TaskListCommand extends AbstractCommand {
     public void execute() {
         System.out.println("[TASK LIST]");
         int index = 1;
-        for (Task task : taskService.getListTask()) {
+/*        for (Task task : taskService.getListTask()) {
             System.out.println(index + ". " + task.getName());
             index++;
-        }
+        }*/
         System.out.println();
     }
 

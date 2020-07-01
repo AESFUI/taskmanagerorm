@@ -8,19 +8,20 @@ import java.util.Map;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import ml.sadriev.orm.api.repository.IProjectRepository;
+import ml.sadriev.orm.api.repository.ProjectRepository;
+import ml.sadriev.orm.api.repository.ProjectRepositoryCustom;
 import ml.sadriev.orm.model.Project;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Andrey Sadriev
  */
-@Repository
-public class ProjectRepository implements IProjectRepository {
+@Component
+public class ProjectRepositoryImpl implements ProjectRepository, ProjectRepositoryCustom {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -38,27 +39,30 @@ public class ProjectRepository implements IProjectRepository {
     @Override
     public Project merge(final Project project) {
         if (project == null) return null;
-//        entityManager.merge(project.getId());
-        map.put(project.getId(), project);
+        entityManager.persist(project.getId());
         return project;
     }
 
     @Override
     public void merge(final Collection<Project> projects) {
         if (projects == null) return;
-        for (final Project project: projects) merge(project);
+        for (final Project project : projects) {
+            entityManager.merge(project);
+        }
     }
 
     @Override
     public void merge(final Project... projects) {
         if (projects == null) return;
-        for (final Project project: projects) merge(project);
+        for (final Project project : projects) {
+            merge(project);
+        }
     }
 
     @Override
     public void load(final Collection<Project> projects) {
         clear();
-        merge(projects);
+        entityManager.persist(projects);
     }
 
     @Override

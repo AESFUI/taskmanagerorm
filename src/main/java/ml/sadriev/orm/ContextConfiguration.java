@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -15,8 +16,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
+@EnableJpaRepositories("ml.sadriev.orm.api.repository")
 @Configuration
-@ComponentScan
+@ComponentScan("ml.sadriev.orm")
 @PropertySource("classpath:db-conf.properties")
 public class ContextConfiguration {
 
@@ -36,11 +38,11 @@ public class ContextConfiguration {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(final DataSource dataSource,
-                                                                           @Value("${hibernate.dialect}") final String dialect,
-                                                                           @Value("${hibernate.hbm2ddl.auto}") final String hbm2ddlAuto,
-                                                                           @Value("${hibernate.show_sql}") final String showSql,
-                                                                           @Value("${hibernate.format_sql}") final String formatSql) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(final DataSource dataSource,
+                                                                       @Value("${hibernate.dialect}") final String dialect,
+                                                                       @Value("${hibernate.hbm2ddl.auto}") final String hbm2ddlAuto,
+                                                                       @Value("${hibernate.show_sql}") final String showSql,
+                                                                       @Value("${hibernate.format_sql}") final String formatSql) {
         final LocalContainerEntityManagerFactoryBean factoryBean;
         factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource);
@@ -56,9 +58,9 @@ public class ContextConfiguration {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
+    public PlatformTransactionManager transactionManager(final LocalContainerEntityManagerFactoryBean entityManagerFactory) {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
+        transactionManager.setEntityManagerFactory(entityManagerFactory.getObject());
         return transactionManager;
     }
 }

@@ -11,17 +11,17 @@ public interface ITaskService {
 
     Task createTask(String name);
 
-    Task getTaskById(String id);
+/*    Task getTaskById(String id);
 
     Task merge(Task task);
 
     void removeTaskById(String id);
 
-    List<Task> getListTask();
+    List<Task> getListTask();*/
 
     void clear();
 
-    Task createTaskByProject(String projectId, String taskName);
+/*    Task createTaskByProject(String projectId, String taskName);
 
     Task getByOrderIndex(Integer orderIndex);
 
@@ -31,6 +31,6 @@ public interface ITaskService {
 
     void load(Collection<Task> tasks);
 
-    void removeTaskByOrderIndex(Integer orderIndex);
+    void removeTaskByOrderIndex(Integer orderIndex);*/
 
 }

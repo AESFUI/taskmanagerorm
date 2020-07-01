@@ -23,7 +23,7 @@ public class DomainService implements IDomainService {
     public void load(final Domain domain) {
         if (domain == null) return;
         projectService.load(domain.getProjects());
-        taskService.load(domain.getTasks());
+//        taskService.load(domain.getTasks());
     }
 
     @Override
@@ -31,7 +31,7 @@ public class DomainService implements IDomainService {
     public void export(final Domain domain) {
         if (domain == null) return;
         domain.setProjects(projectService.getListProject());
-        domain.setTasks(taskService.getListTask());
+//        domain.setTasks(taskService.getListTask());
     }
 
 }

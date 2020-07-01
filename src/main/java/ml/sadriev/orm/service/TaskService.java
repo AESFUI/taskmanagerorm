@@ -2,11 +2,12 @@ package ml.sadriev.orm.service;
 
 import java.util.Collection;
 import java.util.List;
-import ml.sadriev.orm.api.repository.IProjectRepository;
-import ml.sadriev.orm.api.repository.ITaskRepository;
+import ml.sadriev.orm.api.repository.TaskRepository;
+import ml.sadriev.orm.api.repository.TaskRepositoryCustom;
 import ml.sadriev.orm.api.service.ITaskService;
 import ml.sadriev.orm.model.Project;
 import ml.sadriev.orm.model.Task;
+import ml.sadriev.orm.repository.ProjectRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,26 +18,35 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class TaskService implements ITaskService {
 
-    private final ITaskRepository taskRepository;
+    private final TaskRepository taskRepository;
+    private final TaskRepositoryCustom taskRepositoryCustom;
 
-    private final IProjectRepository projectRepository;
+    private final ProjectRepositoryImpl projectRepository;
 
     @Autowired
-    public TaskService(final ITaskRepository taskRepository, final IProjectRepository projectRepository) {
+    public TaskService(final TaskRepository taskRepository,
+                       final TaskRepositoryCustom taskRepositoryCustom, ProjectRepositoryImpl projectRepositoryImpl) {
         this.taskRepository = taskRepository;
-        this.projectRepository = projectRepository;
+        this.taskRepositoryCustom = taskRepositoryCustom;
+        this.projectRepository = projectRepositoryImpl;
     }
 
-    @Override
+    @Transactional
+    public void clear() {
+        List<Task> taskList = taskRepository.findAll();
+        taskRepository.deleteAll(taskList);
+    }
+
     @Transactional
     public Task createTask(final String name) {
         if (name == null || name.isEmpty()) return null;
-        return taskRepository.createTask(name);
+        return taskRepositoryCustom.createTask(name);
     }
 
-    @Override
+/*    @Override
     public Task getTaskById(final String id) {
-        return taskRepository.getTaskById(id);
+        if (id == null || id.isEmpty()) return null;
+        return taskRepository.findById(id).get();
     }
 
     @Override
@@ -57,10 +67,7 @@ public class TaskService implements ITaskService {
     }
 
     @Override
-    @Transactional
-    public void clear() {
-        taskRepository.clear();
-    }
+
 
     @Override
     @Transactional
@@ -97,6 +104,6 @@ public class TaskService implements ITaskService {
     @Transactional
     public void removeTaskByOrderIndex(Integer orderIndex) {
         taskRepository.removeTaskByOrderIndex(orderIndex);
-    }
+    }*/
 
 }

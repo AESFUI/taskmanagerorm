@@ -53,7 +53,7 @@ public final class DataBinaryLoadCommand extends AbstractCommand {
     private void loadTasks(final Object value) {
         if (!(value instanceof Task[])) return;
         final Task[] tasks = (Task[]) value;
-        taskService.load(tasks);
+//        taskService.load(tasks);
     }
 
 }

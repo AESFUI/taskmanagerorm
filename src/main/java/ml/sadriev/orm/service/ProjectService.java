@@ -2,9 +2,9 @@ package ml.sadriev.orm.service;
 
 import java.util.Collection;
 import java.util.List;
-import ml.sadriev.orm.api.repository.IProjectRepository;
 import ml.sadriev.orm.api.service.IProjectService;
 import ml.sadriev.orm.model.Project;
+import ml.sadriev.orm.repository.ProjectRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ProjectService implements IProjectService {
 
-    private final IProjectRepository projectRepository;
+    private final ProjectRepositoryImpl projectRepository;
 
     @Autowired
-    public ProjectService(final IProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
+    public ProjectService(final ProjectRepositoryImpl projectRepositoryImpl) {
+        this.projectRepository = projectRepositoryImpl;
     }
 
     @Override

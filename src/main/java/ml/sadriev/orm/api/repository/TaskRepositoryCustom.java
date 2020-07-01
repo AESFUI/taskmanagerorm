@@ -3,16 +3,9 @@ package ml.sadriev.orm.api.repository;
 import java.util.Collection;
 import java.util.List;
 import ml.sadriev.orm.model.Task;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- * @author Andrey Sadriev
- */
-public interface ITaskRepository extends JpaRepository<Task, String> {
-
+public interface TaskRepositoryCustom {
     Task createTask(String name);
-
-    Task getTaskById(String id);
 
     Task getByOrderIndex(Integer orderIndex);
 
@@ -33,5 +26,4 @@ public interface ITaskRepository extends JpaRepository<Task, String> {
     List<Task> getListTask();
 
     void clear();
-
 }
