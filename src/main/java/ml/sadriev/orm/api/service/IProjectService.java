@@ -1,5 +1,6 @@
 package ml.sadriev.orm.api.service;
 
+import java.util.Set;
 import ml.sadriev.orm.model.Project;
 
 import java.util.Collection;
@@ -29,4 +30,8 @@ public interface IProjectService {
     void load(Project... projects);
 
     Project removeByOrderIndex(Integer orderIndex);
+
+    Project findProjectById(String id);
+
+    Set<String> findFirstThreeNamesFromProjectById(String... ids);
 }

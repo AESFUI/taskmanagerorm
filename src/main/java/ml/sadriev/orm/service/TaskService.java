@@ -1,10 +1,15 @@
 package ml.sadriev.orm.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.stream.Collectors;
 import ml.sadriev.orm.api.repository.ProjectRepository;
 import ml.sadriev.orm.api.repository.TaskRepository;
 import ml.sadriev.orm.api.service.ITaskService;
+import ml.sadriev.orm.error.CommandCorruptException;
 import ml.sadriev.orm.model.Project;
 import ml.sadriev.orm.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +53,7 @@ public class TaskService implements ITaskService {
     @Override
     public Task getTaskById(final String id) {
         if (id == null || id.isEmpty()) return null;
-        return taskRepository.findById(id).get();
+        return taskRepository.findById(id).orElseThrow(CommandCorruptException::new);
     }
 
     @Override
@@ -94,5 +99,27 @@ public class TaskService implements ITaskService {
     public void load(Collection<Task> tasks) {
         clear();
         taskRepository.load(tasks);
+    }
+
+    public Map<String, Date> getTaskDateMapFromTaskAfterDate(Date beginDate, String line) {
+        List<Task> allTasks = taskRepository.findAll();
+
+        return allTasks
+                .stream()
+                .filter(t -> t.getDateBegin().after(beginDate))
+                .filter(t -> t.getName().startsWith(line))
+                .collect(Collectors.toMap(Task::getName, Task::getDateBegin));
+    }
+
+    public void doSomeNonsense() {
+        Random rnd = new Random(2671);
+        taskRepository.findAll()
+                .stream()
+                .skip(2)
+                .limit(8)
+                .sorted()
+                .map(t -> rnd.nextInt() + t.getId().hashCode())
+                .findFirst()
+                .ifPresent(System.out::println);
     }
 }
